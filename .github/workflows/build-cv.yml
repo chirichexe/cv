@@ -8,6 +8,8 @@ on:
 jobs:
   build_latex:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4
@@ -20,3 +22,11 @@ jobs:
         with:
           name: CV-PDF
           path: template.pdf
+      - name: Update Latest Release
+        uses: softprops/action-gh-release@v2
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          tag_name: latest
+          name: Latest CV
+          files: template.pdf
+          body: "Ultima versione generata automaticamente dal ramo main."
