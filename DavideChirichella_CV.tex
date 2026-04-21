@@ -1,0 +1,151 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{graphicx}
+
+% --- Color Definitions ---
+\definecolor{color0}{rgb}{0,0,0}         % Main text color (Black)
+\definecolor{color1}{RGB}{0, 75, 135}    % Academic Blue
+\definecolor{color2}{gray}{0.3}          % Secondary info color
+
+% --- Section Styling ---
+\titleformat{\section}
+  {\Large\bfseries\color{color1}}
+  {}{0em}{}
+  [\titlerule]
+\titlespacing{\section}{0pt}{18pt}{10pt}
+
+% --- Hyperref Setup ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=color1,
+    urlcolor=color1,
+    pdftitle={Davide Chirichella - Curriculum Vitae},
+}
+
+% --- Custom Entry Commands ---
+\newcommand{\cvitem}[2]{
+    \noindent
+    \begin{tabularx}{\textwidth}{@{}p{3.5cm} X@{}}
+        \textbf{#1} & #2
+    \end{tabularx}
+    \vspace{4pt}
+}
+
+\newcommand{\cventry}[6]{
+    \noindent
+    \begin{tabularx}{\textwidth}{@{}p{3.5cm} X@{}}
+        {\small\sffamily #1} & \textbf{#2} \\
+        & \textit{#3}, #4 \\
+        & \small #6
+    \end{tabularx}
+    \vspace{6pt}
+}
+
+\begin{document}
+
+\pagestyle{empty}
+
+% --- Header ---
+\noindent
+\begin{minipage}[t]{0.75\textwidth}
+    \raggedright
+    {\Huge \textbf{Davide Chirichella}} \\
+    \vspace{2mm}
+    {\large \textcolor{color1}{Computer Engineering Master’s Student | Distributed Systems \& DevOps Engineer}}
+\end{minipage}
+\begin{minipage}[t]{0.25\textwidth}
+    \raggedleft
+    \vspace{-4mm}
+    \includegraphics[width=2.8cm]{picture.png}
+\end{minipage}
+
+\vspace{6mm}
+
+\section{Personal Information}
+\cvitem{Full Name}{Davide Chirichella}
+\cvitem{Date of Birth}{November 10th, 2003}
+\cvitem{Citizenship}{Italian}
+\cvitem{Current Location}{Bologna, Italy}
+\cvitem{Email}{\href{mailto:davide.chirichella2@unibo.it}{davide.chirichella2@unibo.it}}
+\cvitem{LinkedIn}{\href{https://www.linkedin.com/in/davide-chirichella/}{linkedin.com/in/davide-chirichella}}
+\cvitem{GitHub}{\href{https://github.com/chirichexe}{github.com/chirichexe}}
+
+\section{Profile}
+\noindent Master’s student in \textbf{Computer Engineering} at the University of Bologna, with hands-on experience in \textbf{distributed systems}, \textbf{cloud-native architectures}, and \textbf{DevOps practices}. Focused on designing and operating scalable microservices systems using Kubernetes and infrastructure-as-code. Experience spans backend development, CI/CD automation, and cloud-edge architectures for IoT environments.
+
+\section{Education}
+\cventry{2025 -- Present}{Master’s Degree in Computer Engineering}{Alma Mater Studiorum --- Università di Bologna}{Bologna}{}{Focus on Distributed Systems, Parallel Computing (CUDA), and Cloud-native architectures.}
+
+\cventry{2022 -- 2025}{Bachelor’s Degree in Computer Engineering}{Alma Mater Studiorum --- Università di Bologna}{Bologna}{Grade: 107/110}{
+\begin{itemize}[noitemsep, topsep=0pt, leftmargin=1em]
+    \item \textbf{Thesis:} ``Performance Analysis and Monitoring in Cloud-Edge Environments for IoT''
+    \item Developed a cloud-edge distributed system for orchestrating IoT devices using Kubernetes Operators and Crossplane.
+    \item Designed full observability stack with Prometheus, Grafana, and OpenTelemetry.
+    \item Curricular internship (150 hours) at DISI.
+\end{itemize}}
+
+\cventry{2017 -- 2022}{High School Diploma}{Liceo Scientifico Galileo Galilei}{Potenza}{}{Focus on Adobe Creative Cloud, Multimedia Content Production, and Graphic Design.}
+
+\section{Experience}
+\cventry{Feb 2026 -- Present}{Junior DevOps Engineer}{HoDiritto (Startup)}{Remote}{}{
+\begin{itemize}[noitemsep, topsep=0pt, leftmargin=1em]
+    \item Designed and managed cloud-native infrastructure for an early-stage MVP.
+    \item Implemented CI/CD pipelines to automate build, test, and deployment workflows.
+    \item Provisioned infrastructure using Terraform and containerized services with Docker.
+    \item Deployed and managed microservices on Kubernetes.
+\end{itemize}}
+
+\cventry{Feb 2026 -- Present}{Academic Tutor (System Administration)}{Alma Mater Studiorum --- Università di Bologna}{Bologna}{}{
+\begin{itemize}[noitemsep, topsep=0pt, leftmargin=1em]
+    \item Supported undergraduate course ``System Administration and Security''.
+    \item Delivered hands-on guidance on Linux system administration, shell scripting, and security practices.
+    \item Assisted students in debugging and system-level problem solving.
+\end{itemize}}
+
+\cventry{2023 -- 2026}{Software Engineer}{Project Quality Systems S.R.L.}{Remote}{}{
+\begin{itemize}[noitemsep, topsep=0pt, leftmargin=1em]
+    \item Developed and maintained a C\# desktop application for audit management.
+    \item Designed and implemented full-stack features using React.js, Node.js, and MySQL.
+    \item Contributed to the evolution of a corporate management platform.
+    \item Collaborated in requirements analysis and feature design.
+\end{itemize}}
+
+\section{Projects}
+\cventry{}{Cloud-Edge IoT Orchestration Platform (Kubernetes-based)}{}{}{}{
+\begin{itemize}[noitemsep, topsep=0pt, leftmargin=1em]
+    \item Designed a distributed architecture for managing low-power IoT devices across edge and cloud environments.
+    \item Implemented Kubernetes Custom Resources and controllers for device orchestration.
+    \item Integrated Crossplane for dynamic infrastructure provisioning.
+    \item Built observability pipeline using Prometheus, Grafana, and OpenTelemetry.
+\end{itemize}}
+
+\cventry{}{Open-source Contributions (GitHub)}{}{}{}{
+\begin{itemize}[noitemsep, topsep=0pt, leftmargin=1em]
+    \item Contributed to distributed systems and DevOps-related projects.
+    \item Focus on Kubernetes tooling, automation, and cloud-native workflows.
+\end{itemize}}
+
+\section{Technical Skills}
+\cvitem{Languages}{Go, C, Java, C\#, JavaScript (React.js, Node.js), Python, SQL, CUDA.}
+\cvitem{Cloud \& DevOps}{Kubernetes, Docker, Terraform, CI/CD pipelines, Istio, Crossplane.}
+\cvitem{Observability}{Prometheus, Grafana, OpenTelemetry.}
+\cvitem{Systems}{Linux system administration, shell scripting, basic cybersecurity.}
+\cvitem{Tools}{Git, Adobe Creative Suite (Photoshop, Illustrator, Premiere).}
+
+\section{Languages}
+\cvitem{Italian}{Native.}
+\cvitem{English}{B2 — Cambridge English First (FCE).}
+
+\end{document}

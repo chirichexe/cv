@@ -16,17 +16,17 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: template.tex
+          root_file: DavideChirichella_CV.tex
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
           name: CV-PDF
-          path: template.pdf
+          path: DavideChirichella_CV.pdf
       - name: Update Latest Release
         uses: softprops/action-gh-release@v2
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           tag_name: latest
           name: Latest CV
-          files: template.pdf
+          files: DavideChirichella_CV.pdf
           body: "Ultima versione generata automaticamente dal ramo main."
