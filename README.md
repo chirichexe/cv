@@ -8,8 +8,9 @@ This repository contains the LaTeX source code for my professional Curriculum Vi
 The build process is fully automated via GitHub Actions, which compiles the source and updates the latest PDF release upon each commit to the main branch.
 
 ## Latest PDF
-The most recent version of the CV is available for download here:
-**[DavideChirichella_CV.pdf](https://github.com/chirichexe/cv/releases/download/latest/DavideChirichella_CV.pdf)**
+The most recent versions of the CV are available for download here:
+- **[English Version (EN)](https://github.com/chirichexe/cv/releases/download/latest/DavideChirichella_CV.pdf)**
+- **[Versione Italiana (IT)](https://github.com/chirichexe/cv/releases/download/latest/DavideChirichella_CV_IT.pdf)**
 
 ## Technical Overview
 - **Source**: LaTeX

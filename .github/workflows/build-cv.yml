@@ -13,20 +13,28 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4
-      - name: Compile LaTeX document
+      - name: Compile English CV
         uses: xu-cheng/latex-action@v3
         with:
           root_file: DavideChirichella_CV.tex
-      - name: Upload PDF artifact
+      - name: Compile Italian CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: DavideChirichella_CV_IT.tex
+      - name: Upload PDF artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: CV-PDF
-          path: DavideChirichella_CV.pdf
+          name: CV-PDFs
+          path: |
+            DavideChirichella_CV.pdf
+            DavideChirichella_CV_IT.pdf
       - name: Update Latest Release
         uses: softprops/action-gh-release@v2
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           tag_name: latest
           name: Latest CV
-          files: DavideChirichella_CV.pdf
-          body: "Ultima versione generata automaticamente dal ramo main."
+          files: |
+            DavideChirichella_CV.pdf
+            DavideChirichella_CV_IT.pdf
+          body: "Ultima versione generata automaticamente dal ramo main (EN e IT)."
