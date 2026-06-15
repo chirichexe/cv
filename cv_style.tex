@@ -1,96 +1,90 @@
-% --- Packages ---
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{geometry}
-\geometry{left=1.8cm, right=1.8cm, top=1.8cm, bottom=1.8cm}
-\usepackage{enumitem}
+%-------------------------
+% Resume in LateX
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
 \usepackage{titlesec}
-\usepackage{hyperref}
-\usepackage{xcolor}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[colorlinks=true, urlcolor=RoyalBlue, linkcolor=RoyalBlue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
 \usepackage{tabularx}
 \usepackage{graphicx}
-\usepackage{etoolbox}
+\input{glyphtounicode}
 
-% --- Color Definitions ---
-\definecolor{color0}{rgb}{0,0,0}         % Main text color (Black)
-\definecolor{color1}{RGB}{0, 75, 135}    % Academic Blue
-\definecolor{color2}{gray}{0.3}          % Secondary info color
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
-% --- Section Styling ---
-\titleformat{\section}
-  {\Large\bfseries\color{color1}}
-  {}{0em}{}
-  [\titlerule]
-\titlespacing{\section}{0pt}{14pt}{8pt}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
 
-% --- Hyperref Setup ---
-\hypersetup{
-    colorlinks=true,
-    linkcolor=color1,
-    urlcolor=color1,
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate PDF is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
 }
 
-% --- Custom Entry Commands ---
-\newcommand{\cvitem}[2]{
-    \noindent
-    \begin{tabularx}{\textwidth}{@{}p{3.8cm} X@{}}
-        \textbf{#1} & #2
-    \end{tabularx}
-    \vspace{3pt}
+\newcommand{\resumeItemNoTitle}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
 }
 
-\newcommand{\cventry}[6]{
-    \noindent
-    \begin{tabularx}{\textwidth}{@{}p{3.8cm} X@{}}
-        {\small\sffamily #1} & \textbf{#2} \\
-        \ifstrempty{#3}{%
-            \ifstrempty{#4}{%
-                \ifstrempty{#5}{}{& \small #5 \\}%
-            }{& #4\ifstrempty{#5}{}{\\ & \small #5} \\}%
-        }{%
-            & \textit{#3}\ifstrempty{#4}{}{, #4}\ifstrempty{#5}{}{\\ & \small #5} \\%
-        }%
-        & \small #6
-    \end{tabularx}
-    \vspace{10pt}
+\newcommand{\resumeHeading}[4]{
+    \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
 }
 
-% --- Common Header ---
-\newcommand{\cvheader}[2]{
-    \pagestyle{empty}
-    \noindent
-    \begin{minipage}[t]{0.80\textwidth}
-        \raggedright
-        {\Huge \textbf{Davide Chirichella}} \\
-        \vspace{2mm}
-        {\large \textcolor{color1}{#1}}
-    \end{minipage}
-    \begin{minipage}[t]{0.20\textwidth}
-        \raggedleft
-        \vspace{-4mm}
-        \includegraphics[width=2.1cm]{picture.png}
-    \end{minipage}
-    \vspace{4mm}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
 }
 
-% --- Footer ---
-\newcommand{\cvfooter}[2]{
-    \vfill
-    \begin{minipage}[t]{0.5\textwidth}
-        \raggedright
-        \small #1, \today
-    \end{minipage}
-    \begin{minipage}[t]{0.5\textwidth}
-        \raggedleft
-        \small \textit{Davide Chirichella} \\[1.2cm]
-        \rule{5cm}{0.4pt}
-    \end{minipage}
-    \vspace{1.5cm}
-    \noindent
-    \begin{minipage}{\textwidth}
-        \centering
-        \scriptsize
-        #2
-    \end{minipage}
+\newcommand{\resumeSubSubheading}[2]{
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
 }
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}

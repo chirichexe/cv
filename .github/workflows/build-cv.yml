@@ -16,7 +16,7 @@ jobs:
       - name: Compile English CV
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: DavideChirichella_CV.tex
+          root_file: DavideChirichella_CV_ENG.tex
       - name: Compile Italian CV
         uses: xu-cheng/latex-action@v3
         with:
@@ -26,7 +26,7 @@ jobs:
         with:
           name: CV-PDFs
           path: |
-            DavideChirichella_CV.pdf
+            DavideChirichella_CV_ENG.pdf
             DavideChirichella_CV_IT.pdf
       - name: Update Latest Release
         uses: softprops/action-gh-release@v2
@@ -35,6 +35,6 @@ jobs:
           tag_name: latest
           name: Latest CV
           files: |
-            DavideChirichella_CV.pdf
+            DavideChirichella_CV_ENG.pdf
             DavideChirichella_CV_IT.pdf
           body: "Ultima versione generata automaticamente dal ramo main (EN e IT)."
