@@ -9,7 +9,7 @@ The build process is fully automated via GitHub Actions, which compiles the sour
 
 ## Latest PDF
 The most recent versions of the CV are available for download here:
-- **[English Version (EN)](https://github.com/chirichexe/cv/releases/download/latest/DavideChirichella_CV.pdf)**
+- **[English Version (EN)](https://github.com/chirichexe/cv/releases/download/latest/DavideChirichella_CV_ENG.pdf)**
 - **[Versione Italiana (IT)](https://github.com/chirichexe/cv/releases/download/latest/DavideChirichella_CV_IT.pdf)**
 
 ## Technical Overview

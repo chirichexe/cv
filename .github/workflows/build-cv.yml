@@ -38,3 +38,17 @@ jobs:
             DavideChirichella_CV_ENG.pdf
             DavideChirichella_CV_IT.pdf
           body: "Ultima versione generata automaticamente dal ramo main (EN e IT)."
+      - name: Trigger website rebuild
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          SITE_DISPATCH_TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
+        run: |
+          if [ -z "$SITE_DISPATCH_TOKEN" ]; then
+            echo "SITE_DISPATCH_TOKEN not set; the site will pick up the CV at its daily rebuild."
+            exit 0
+          fi
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $SITE_DISPATCH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/chirichexe/chirichexe.github.io/dispatches \
+            -d '{"event_type":"cv-updated"}'
